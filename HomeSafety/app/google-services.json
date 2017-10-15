@@ -1,0 +1,340 @@
+{
+  "project_info": {
+    "project_number": "625228971868",
+    "firebase_url": "https://sshfirebaseproject.firebaseio.com",
+    "project_id": "sshfirebaseproject",
+    "storage_bucket": "sshfirebaseproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625228971868:android:813babab68da651d",
+        "android_client_info": {
+          "package_name": "jdisa.ssh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625228971868-7p0eb8763v6deogu3uvkh9ioq1p3bmgu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jdisa.ssh",
+            "certificate_hash": "4e7eceb6f0ce83da304f2b0ee5da1764bc636f6c"
+          }
+        },
+        {
+          "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtz4L8xXLPKIYPi6CM7ynThTiDlxN3kPQ"
+        },
+        {
+          "current_key": "AIzaSyBrkNAaCbyx9-VLuLY3udtgZyU03xnoLyo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625228971868:android:4a4fbd20fd71ddf7",
+        "android_client_info": {
+          "package_name": "org.weibeld.example.tabs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625228971868-3s5tlequj89d1imoim0gf6n1ive4s6e7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.weibeld.example.tabs",
+            "certificate_hash": "4e7eceb6f0ce83da304f2b0ee5da1764bc636f6c"
+          }
+        },
+        {
+          "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtz4L8xXLPKIYPi6CM7ynThTiDlxN3kPQ"
+        },
+        {
+          "current_key": "AIzaSyBrkNAaCbyx9-VLuLY3udtgZyU03xnoLyo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625228971868:android:687feba2324477f8",
+        "android_client_info": {
+          "package_name": "jdisa.securityhome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625228971868-t0vkimp9ve84f90lfbke56fti3i7n98k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jdisa.securityhome",
+            "certificate_hash": "4e7eceb6f0ce83da304f2b0ee5da1764bc636f6c"
+          }
+        },
+        {
+          "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtz4L8xXLPKIYPi6CM7ynThTiDlxN3kPQ"
+        },
+        {
+          "current_key": "AIzaSyBrkNAaCbyx9-VLuLY3udtgZyU03xnoLyo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625228971868:android:5c26133ad294c7cd",
+        "android_client_info": {
+          "package_name": "jdisa.securitysystemhome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625228971868-0tbvii1pqfgn0ro3bmkc1dofdku5rj9o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jdisa.securitysystemhome",
+            "certificate_hash": "4e7eceb6f0ce83da304f2b0ee5da1764bc636f6c"
+          }
+        },
+        {
+          "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtz4L8xXLPKIYPi6CM7ynThTiDlxN3kPQ"
+        },
+        {
+          "current_key": "AIzaSyBrkNAaCbyx9-VLuLY3udtgZyU03xnoLyo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625228971868:android:d842af33038fad5c",
+        "android_client_info": {
+          "package_name": "info.androidhive.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625228971868-ulr78jkkkg54kose4pk2hnm2mub36tls.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "info.androidhive.firebase",
+            "certificate_hash": "4e7eceb6f0ce83da304f2b0ee5da1764bc636f6c"
+          }
+        },
+        {
+          "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtz4L8xXLPKIYPi6CM7ynThTiDlxN3kPQ"
+        },
+        {
+          "current_key": "AIzaSyBrkNAaCbyx9-VLuLY3udtgZyU03xnoLyo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625228971868:android:8c34048992f57635",
+        "android_client_info": {
+          "package_name": "info.androidhive.navigationdrawer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625228971868-dlupnk7etn1dph0ka7jf6u84m7ip72ha.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "info.androidhive.navigationdrawer",
+            "certificate_hash": "4e7eceb6f0ce83da304f2b0ee5da1764bc636f6c"
+          }
+        },
+        {
+          "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtz4L8xXLPKIYPi6CM7ynThTiDlxN3kPQ"
+        },
+        {
+          "current_key": "AIzaSyBrkNAaCbyx9-VLuLY3udtgZyU03xnoLyo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625228971868:android:088273c31808ae73",
+        "android_client_info": {
+          "package_name": "jdisa.homesafety"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625228971868-9i6od1o0k3bhqhpapc0l32i8mp9ofvqp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jdisa.homesafety",
+            "certificate_hash": "4e7eceb6f0ce83da304f2b0ee5da1764bc636f6c"
+          }
+        },
+        {
+          "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtz4L8xXLPKIYPi6CM7ynThTiDlxN3kPQ"
+        },
+        {
+          "current_key": "AIzaSyBrkNAaCbyx9-VLuLY3udtgZyU03xnoLyo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625228971868-v1fq27sjaak5g2prmvere6tajhkcs5vl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
