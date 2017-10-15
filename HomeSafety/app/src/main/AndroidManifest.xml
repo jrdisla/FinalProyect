@@ -8,19 +8,31 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ssh"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Autenticacion.LoginActivity">
+        <activity android:name=".Autenticacion.LoginActivity"
+
+            android:theme="@style/AppTheme.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Autenticacion.SignupActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Autenticacion.ResetPasswordActivity"></activity>
+        <activity android:name=".Autenticacion.SignupActivity"
+
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity android:name=".Autenticacion.ResetPasswordActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Menu.Activity.AboutUsActivity"
+
+            android:theme="@style/AppTheme.NoActionBar"> </activity>
     </application>
 
 </manifest>
