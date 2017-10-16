@@ -1,57 +1,60 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jdisa.homesafety.Menu.Fragment.HomeFragment">
+    tools:context="jdisa.homesafety.Menu.Activity.Resume">
 
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp">
 
         <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/co2"
+            android:layout_width="250pt"
+            android:layout_height="59dp"
             android:text="TextView"
             android:layout_centerInParent="true"
             android:textSize="40sp"
             android:textStyle="bold|italic"/>/>
 
         <TextView
-            android:id="@+id/textView11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/temp"
+            android:layout_width="350pt"
+            android:layout_height="58dp"
             android:text="TextView"
             android:layout_centerInParent="true"
             android:textSize="40sp"
             android:textStyle="bold|italic"/>/>
 
         <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/hum"
+            android:layout_width="350pt"
+            android:layout_height="61dp"
             android:text="TextView"
             android:layout_centerInParent="true"
             android:textSize="40sp"
             android:textStyle="bold|italic"/>/>
 
         <TextView
-            android:id="@+id/textView13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/gas"
+            android:layout_width="350pt"
+            android:layout_height="61dp"
             android:text="TextView"
             android:layout_centerInParent="true"
             android:textSize="40sp"
             android:textStyle="bold|italic"/>
 
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chart4"
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/chart10"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="285dp" />
     </LinearLayout>
 
-</FrameLayout>
+</android.support.constraint.ConstraintLayout>

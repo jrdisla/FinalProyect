@@ -11,28 +11,32 @@
         android:roundIcon="@drawable/ssh"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Autenticacion.LoginActivity"
-
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+        <activity
+            android:name=".Autenticacion.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Autenticacion.SignupActivity"
-
-            android:theme="@style/AppTheme.NoActionBar"/>
-
-        <activity android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
-        <activity android:name=".Autenticacion.ResetPasswordActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Menu.Activity.AboutUsActivity"
-
-            android:theme="@style/AppTheme.NoActionBar"> </activity>
+        <activity
+            android:name=".Autenticacion.SignupActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Autenticacion.ResetPasswordActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Menu.Activity.AboutUsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Menu.Activity.Co2_Show" />
+        <activity android:name=".Menu.Activity.GasShow" />
+        <activity android:name=".Menu.Activity.HumShow" />
+        <activity android:name=".Menu.Activity.TempShow" />
+        <activity android:name=".Menu.Activity.Resume"></activity>
     </application>
 
 </manifest>

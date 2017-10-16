@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -24,6 +23,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import jdisa.homesafety.Menu.Activity.AboutUsActivity;
+import jdisa.homesafety.Menu.Activity.Co2_Show;
+import jdisa.homesafety.Menu.Activity.GasShow;
+import jdisa.homesafety.Menu.Activity.HumShow;
+import jdisa.homesafety.Menu.Activity.Resume;
+import jdisa.homesafety.Menu.Activity.TempShow;
 import jdisa.homesafety.Menu.Fragment.HomeFragment;
 import jdisa.homesafety.Menu.Fragment.PhotosFragment;
 import jdisa.homesafety.Menu.Fragment.SettingsFragment;
@@ -41,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     // urls to load navigation header background image
     // and profile image
-    private static final String urlNavHeaderBg = "http://api.androidhive.info/images/nav-menu-header-bg.jpg";
+    private static final String urlNavHeaderBg = "http://buysellgraphic.com/images/graphic_preview/thumb/abstract_wavy_background_20692.jpg";
     private static final String urlProfileImg = "https://lh3.googleusercontent.com/eCtE_G34M9ygdkmOpYvCag1vBARCmZwnVS6rS5t4JLzJ6QgQSBquM0nuTsCpLhYbKljoyS-txg";
 
     // index to identify current nav menu item
@@ -55,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String FB_DATABASE_PATH = "image2";
     public static final String FB_DATABASE_PATH_ = "Temp";
     public static final String FB_DATABASE_PATH_HUM = "Hum";
-    public static final String FB_DATABASE_PATH_GAZ = "Gaz";
+    public static final String FB_DATABASE_PATH_GAZ = "PG";
     public static final String FB_DATABASE_PATH_CO2 = "Co2";
     public static String CURRENT_TAG = TAG_HOME;
 
@@ -87,18 +91,18 @@ public class MainActivity extends AppCompatActivity {
         txtName = (TextView) navHeader.findViewById(R.id.name);
         txtWebsite = (TextView) navHeader.findViewById(R.id.website);
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
-        imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
+       // imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
 
         // load toolbar titles from string resources
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
 
-        fab.setOnClickListener(new View.OnClickListener() {
+     /*   fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         // load nav menu header data
         loadNavHeader();
@@ -128,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imgNavHeaderBg);
 
-        // Loading profile image
-    /*    Glide.with(this).load(urlProfileImg)
+    /*   //  Loading profile image
+       Glide.with(this).load("@drawable/ssh")
                 .crossFade()
                 .thumbnail(0.5f)
                 .bitmapTransform(new CircleTransform(this))
@@ -137,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
                 .into(imgProfile);*/
 
         // showing dot next to notifications label
-        navigationView.getMenu().getItem(3).setActionView(R.layout.menu_dot);
+        //navigationView.getMenu().getItem(3).setActionView(R.layout.menu_dot);
     }
 
     /***
@@ -157,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
             drawer.closeDrawers();
 
             // show or hide the fab button
-            toggleFab();
+            //toggleFab();
             return;
         }
 
@@ -173,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.setCustomAnimations(android.R.anim.fade_in,
                         android.R.anim.fade_out);
-                fragmentTransaction.replace(R.id.frame, fragment, CURRENT_TAG);
+                fragmentTransaction.replace(R.id.frame, fragment, "home");
                 fragmentTransaction.commitAllowingStateLoss();
             }
         };
@@ -184,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // show or hide the fab button
-        toggleFab();
+       toggleFab();
 
         //Closing drawer on item click
         drawer.closeDrawers();
@@ -250,6 +254,35 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
                         drawer.closeDrawers();
                         return true;
+                    case R.id.nav_dataShow:
+                        // launch new intent instead of loading fragment
+                        startActivity(new Intent(MainActivity.this, Co2_Show.class));
+                        drawer.closeDrawers();
+                        return true;
+
+                    case R.id.nav_gas:
+                        // launch new intent instead of loading fragment
+                        startActivity(new Intent(MainActivity.this, GasShow.class));
+                        drawer.closeDrawers();
+                        return true;
+
+                    case R.id.nav_Hum:
+                        // launch new intent instead of loading fragment
+                        startActivity(new Intent(MainActivity.this, HumShow.class));
+                        drawer.closeDrawers();
+                        return true;
+                    case R.id.nav_temp:
+                        // launch new intent instead of loading fragment
+                        startActivity(new Intent(MainActivity.this, TempShow.class));
+                        drawer.closeDrawers();
+                        return true;
+
+                    case R.id.nav_resu:
+                        // launch new intent instead of loading fragment
+                        startActivity(new Intent(MainActivity.this, Resume.class));
+                        drawer.closeDrawers();
+                        return true;
+
                    /* case R.id.nav_privacy_policy:
                         // launch new intent instead of loading fragment
                         startActivity(new Intent(MainActivity.this, PrivacyPolicyActivity.class));
@@ -323,7 +356,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
 
-        // show menu only when home fragment is selected
+    /*    // show menu only when home fragment is selected
         if (navItemIndex == 0) {
             getMenuInflater().inflate(R.menu.main, menu);
         }
@@ -331,7 +364,7 @@ public class MainActivity extends AppCompatActivity {
         // when fragment is notifications, load the menu created for notifications
         if (navItemIndex == 3) {
             getMenuInflater().inflate(R.menu.notifications, menu);
-        }
+        }*/
         return true;
     }
 
@@ -364,7 +397,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // show or hide the fab
-    private void toggleFab() {
+   private void toggleFab() {
         if (navItemIndex == 0)
             fab.show();
         else

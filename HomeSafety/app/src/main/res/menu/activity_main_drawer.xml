@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <group android:checkableBehavior="single">
+     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
@@ -22,9 +21,22 @@
             <item
                 android:id="@+id/nav_about_us"
                 android:title="@string/nav_about_us" />
+
             <item
-                android:id="@+id/nav_privacy_policy"
-                android:title="@string/privacy_policy" />
+                android:id="@+id/nav_dataShow"
+                android:title="Co2" />
+            <item
+                android:id="@+id/nav_gas"
+                android:title="Gaz" />
+            <item
+                android:id="@+id/nav_Hum"
+                android:title="Humedad" />
+            <item
+                android:id="@+id/nav_temp"
+                android:title="Temperatura" />
+            <item
+                android:id="@+id/nav_resu"
+                android:title="Resumen" />
         </menu>
     </item>
 
