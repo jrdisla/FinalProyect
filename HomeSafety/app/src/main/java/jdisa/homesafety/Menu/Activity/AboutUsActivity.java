@@ -39,7 +39,7 @@ public class AboutUsActivity extends AppCompatActivity {
 //        toolbar.setTitle(getString(R.string.app_name));
         setSupportActionBar(toolbar);
 
-        //get firebase auth instance
+
         auth = FirebaseAuth.getInstance();
 
         //get current user

@@ -146,7 +146,7 @@ public class Resume extends AppCompatActivity {
                 //  dataset.setDrawFilled(true);
                 dataset.setDrawValues(false);
                 BarData dataB = new BarData(labels,dataset);
-                // data = new Bardat(labels,dataset);
+
                 BarChart lineChart = (BarChart) findViewById(R.id.chart10);
                 lineChart.setData(dataB);
                TextView temp =  (TextView)  findViewById(R.id.temp);

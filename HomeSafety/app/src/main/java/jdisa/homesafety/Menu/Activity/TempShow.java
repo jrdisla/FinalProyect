@@ -58,7 +58,7 @@ public class TempShow extends AppCompatActivity {
                 dataset.setDrawFilled(true);
                 dataset.setDrawValues(false);
                 LineData data = new LineData(labels, dataset);
-                lineChart.setData(data); // set the data and list of lables into chart<br />
+                lineChart.setData(data);
                 lineChart.setDescription("Description");
             }
 
