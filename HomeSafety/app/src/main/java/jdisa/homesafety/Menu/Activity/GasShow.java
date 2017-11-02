@@ -34,7 +34,7 @@ public class GasShow extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gas_show);
         progressDialog = new ProgressDialog(this);
-        progressDialog.show();
+            progressDialog.show();
         nDatabaseRef = FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_GAZ);
         nDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override

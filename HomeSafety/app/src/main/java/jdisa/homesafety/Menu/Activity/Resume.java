@@ -1,7 +1,12 @@
 package jdisa.homesafety.Menu.Activity;
 
+import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.StyleSpan;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -19,10 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import jdisa.homesafety.Data_Form.Co2;
-import jdisa.homesafety.Data_Form.Gas;
-import jdisa.homesafety.Data_Form.Humedad;
-import jdisa.homesafety.Data_Form.Temperatura;
+import jdisa.homesafety.Data_Form.Data;
 import jdisa.homesafety.MainActivity;
 import jdisa.homesafety.R;
 
@@ -31,7 +33,9 @@ public class Resume extends AppCompatActivity {
     private DatabaseReference nDatabaseRef2;
     private DatabaseReference nDatabaseRef3;
     private DatabaseReference nDatabaseRef4;
+    private DatabaseReference Data;
 
+    private ProgressDialog progressDialog;
     private int cont=0;
     ArrayList<BarEntry> entries = new ArrayList<>();
     ArrayList<String> labels = new ArrayList<String>();
@@ -44,120 +48,94 @@ public class Resume extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resume);
-
+        progressDialog = new ProgressDialog(this);
+        progressDialog.show();
         nDatabaseRef = FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_CO2);
         nDatabaseRef2 = FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_);
         nDatabaseRef3 = FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_GAZ);
         nDatabaseRef4 = FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_HUM);
+        Data= FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_Data);
 
-        nDatabaseRef.limitToLast(1).addValueEventListener(new ValueEventListener() {
+        Data.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                setContentView(R.layout.activity_resume);
 
-                int count=0;
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()
-                        ) {
-
-                    Co2 tmp = snapshot.getValue(Co2.class);
-                    Long value = tmp.getValue();
-                    entries.add(new BarEntry((float)value, count));
-                    data_sh.add((float)value);
-                    labels.add("CO2");
-
-                    count+=1;
-                    cont=count;
+ArrayList<Data> datas = new ArrayList<Data>();
+                Long co2_p= 0L;
+                Long hume_p= 0L;
+                Long pg_p= 0L ;
+                Long temp_p= 0L ;
+                for (DataSnapshot snap: dataSnapshot.getChildren()
+                     ) {
+                        String key = dataSnapshot.getKey();
+                    Data data = new Data();
+                data = snap.getValue(Data.class);
+                    if(data != null) {
+                        datas.add(data);
+                        co2_p += data.getCo2();
+                        hume_p += data.getHume();
+                        pg_p += data.getPg();
+                        temp_p += data.getTemp();
+                    }
                 }
+                Long co2= 0L;
+                Long hume= 0L;
+                Long pg= 0L ;
+                Long temp= 0L ;
+for (Data item : datas)
+{
+   co2 = item.getCo2() ;
+    hume = item.getHume();
+    pg = item.getPg();
+   temp = item.getTemp();
+
+    TextView tempe =  (TextView) findViewById(R.id.temp);
+    TextView hum = (TextView) findViewById(R.id.hum);
+    TextView gas = (TextView) findViewById(R.id.gas);
+    TextView co2e = (TextView) findViewById(R.id.co2);
 
 
-            }
+    SpannableString miTexto = new SpannableString("Co2: "+ String.valueOf(co2)+" ppm");
+    StyleSpan boldSpan1 = new StyleSpan(Typeface.BOLD);
+    miTexto.setSpan(boldSpan1, 0, 4, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        nDatabaseRef2.limitToLast(1).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                setContentView(R.layout.activity_resume);
+    SpannableString miTexto2 = new SpannableString("Temp: " + String.valueOf(temp) + " °C");
+    StyleSpan boldSpan12 = new StyleSpan(Typeface.BOLD);
+    miTexto2.setSpan(boldSpan12, 0, 6, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
 
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()
-                        ) {
-
-                    Temperatura tmp = snapshot.getValue(Temperatura.class);
-                    Long value = tmp.getVslue();
-                    entries.add(new BarEntry((float)value, cont));
-                    labels.add("Temp.");
-                    cont+=1;
-                    data_sh.add((float)value);
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        nDatabaseRef4.limitToLast(1).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                setContentView(R.layout.activity_resume);
+    SpannableString miTexto3 = new SpannableString("Humedad: " + String.valueOf(hume) + "%");
+    StyleSpan boldSpan13 = new StyleSpan(Typeface.BOLD);
+    miTexto3.setSpan(boldSpan13, 0, 9, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
 
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()
-                        ) {
+    SpannableString miTexto4 = new SpannableString("Gas: " + String.valueOf(pg) + " ppm");
+    StyleSpan boldSpan14 = new StyleSpan(Typeface.BOLD);
+    miTexto4.setSpan(boldSpan14, 0, 4, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
-                    Humedad tmp = snapshot.getValue(Humedad.class);
-                    Long value = tmp.getValue();
-                    entries.add(new BarEntry((float)value, cont));
-                    labels.add("Hum");
-                    cont+=1;
-                    data_sh.add((float)value);
-                    // cont=count;
-                }
+    co2e.setText(miTexto);
+    tempe.setText(miTexto2);
+    hum.setText(miTexto3);
+    gas.setText(miTexto4);
 
-            }
+}
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        nDatabaseRef3.limitToLast(1).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                setContentView(R.layout.activity_resume);
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()
-                        ) {
-
-                    Gas tmp = snapshot.getValue(Gas.class);
-                    Long value = tmp.getValue();
-                    entries.add(new BarEntry((float)value, cont));
-                    labels.add("Gas");
-                    cont+=1;
-                    data_sh.add((float)value);
-
-                }
+                entries.add(new BarEntry((float)co2_p/datas.size(), 0));
+                labels.add("Co2");
+                entries.add(new BarEntry((float)hume_p/datas.size(), 1));
+                labels.add("Hum.");
+                entries.add(new BarEntry((float)pg_p/datas.size(), 2));
+                labels.add("Pro.");
+                entries.add(new BarEntry((float)temp_p/datas.size(), 3));
+                labels.add("   Tem.");
                 BarDataSet dataset = new BarDataSet(entries,"data");
-                dataset.setColors(ColorTemplate.COLORFUL_COLORS);
-                //  dataset.setDrawFilled(true);
+                dataset.setColors(ColorTemplate.PASTEL_COLORS);
                 dataset.setDrawValues(false);
                 BarData dataB = new BarData(labels,dataset);
-
                 BarChart lineChart = (BarChart) findViewById(R.id.chart10);
                 lineChart.setData(dataB);
-               TextView temp =  (TextView)  findViewById(R.id.temp);
-               TextView hum = (TextView) findViewById(R.id.hum);
-                TextView gas = (TextView) findViewById(R.id.gas);
-               TextView co2 = (TextView) findViewById(R.id.co2);
+                progressDialog.dismiss();
 
-                co2.setText("Co2: "+data_sh.get(0)+" ppm");
-                temp.setText("Temp.: " + data_sh.get(1) + " C");
-                hum.setText("Humedad: " + data_sh.get(2) + "%");
-                gas.setText("Propano: " + data_sh.get(data_sh.size()-1) + " ppm");
             }
 
             @Override
@@ -165,6 +143,7 @@ public class Resume extends AppCompatActivity {
 
             }
         });
+
 
     }
 }

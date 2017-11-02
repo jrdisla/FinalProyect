@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String FB_DATABASE_PATH_HUM = "Hum";
     public static final String FB_DATABASE_PATH_GAZ = "PG";
     public static final String FB_DATABASE_PATH_CO2 = "Co2";
+    public static final String FB_DATABASE_PATH_Data = "Data";
     public static String CURRENT_TAG = TAG_HOME;
 
     // toolbar titles respected to selected nav menu item
