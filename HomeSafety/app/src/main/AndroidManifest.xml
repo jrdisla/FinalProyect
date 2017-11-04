@@ -36,7 +36,9 @@
         <activity android:name=".Menu.Activity.GasShow" />
         <activity android:name=".Menu.Activity.HumShow" />
         <activity android:name=".Menu.Activity.TempShow" />
-        <activity android:name=".Menu.Activity.Resume"></activity>
+        <activity android:name=".Menu.Activity.Resume" />
+        <activity android:name=".Menu.Activity.ImageListActivity2" />
+        <activity android:name=".Menu.Activity.device_selecction"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package jdisa.homesafety.Menu.Activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +36,7 @@ public class Resume extends AppCompatActivity {
     private DatabaseReference nDatabaseRef3;
     private DatabaseReference nDatabaseRef4;
     private DatabaseReference Data;
-
+    private FirebaseAuth auth;
     private ProgressDialog progressDialog;
     private int cont=0;
     ArrayList<BarEntry> entries = new ArrayList<>();
@@ -48,6 +50,11 @@ public class Resume extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resume);
+        auth = FirebaseAuth.getInstance();
+
+        Intent i = getIntent();
+        final String value= getIntent().getStringExtra("getData");
+
         progressDialog = new ProgressDialog(this);
         progressDialog.show();
         nDatabaseRef = FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_CO2);
@@ -65,7 +72,10 @@ ArrayList<Data> datas = new ArrayList<Data>();
                 Long hume_p= 0L;
                 Long pg_p= 0L ;
                 Long temp_p= 0L ;
-                for (DataSnapshot snap: dataSnapshot.getChildren()
+                String user = auth.getCurrentUser().getEmail();
+                String child = user.substring(0,12);
+
+                for (DataSnapshot snap: dataSnapshot.child(value).getChildren()
                      ) {
                         String key = dataSnapshot.getKey();
                     Data data = new Data();

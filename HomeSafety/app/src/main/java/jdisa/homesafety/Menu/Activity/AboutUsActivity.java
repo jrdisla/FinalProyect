@@ -35,10 +35,30 @@ public class AboutUsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
 
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        toolbar.setTitle(getString(R.string.app_name));
         setSupportActionBar(toolbar);
 
+       /* Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        String[] letra = {"A","B","C","D","E"};
+        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, letra));
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id)
+            {
+                String selected = adapterView.getItemAtPosition(pos).toString();
+                Intent intent = new Intent(getApplicationContext(), Resume.class);
+                intent.putExtra("getData",selected);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent)
+            {    }
+        });*/
 
         auth = FirebaseAuth.getInstance();
 
@@ -269,4 +289,5 @@ public class AboutUsActivity extends AppCompatActivity {
             auth.removeAuthStateListener(authListener);
         }
     }
+
 }

@@ -26,6 +26,7 @@ import jdisa.homesafety.Menu.Activity.AboutUsActivity;
 import jdisa.homesafety.Menu.Activity.Co2_Show;
 import jdisa.homesafety.Menu.Activity.GasShow;
 import jdisa.homesafety.Menu.Activity.HumShow;
+import jdisa.homesafety.Menu.Activity.ImageListActivity2;
 import jdisa.homesafety.Menu.Activity.Resume;
 import jdisa.homesafety.Menu.Activity.TempShow;
 import jdisa.homesafety.Menu.Fragment.HomeFragment;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String FB_DATABASE_PATH_GAZ = "PG";
     public static final String FB_DATABASE_PATH_CO2 = "Co2";
     public static final String FB_DATABASE_PATH_Data = "Data";
+    public static final String FB_DATABASE_PATH_Dispositivo = "Dispositivo";
     public static String CURRENT_TAG = TAG_HOME;
 
     // toolbar titles respected to selected nav menu item
@@ -85,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+       // fab = (FloatingActionButton) findViewById(R.id.fab);
 
         // Navigation view header
         navHeader = navigationView.getHeaderView(0);
@@ -189,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // show or hide the fab button
-       toggleFab();
+//       toggleFab();
 
         //Closing drawer on item click
         drawer.closeDrawers();
@@ -278,9 +280,18 @@ public class MainActivity extends AppCompatActivity {
                         drawer.closeDrawers();
                         return true;
 
+                    case R.id.nav_foto:
+                        // launch new intent instead of loading fragment
+                        startActivity(new Intent(MainActivity.this, ImageListActivity2.class));
+                        drawer.closeDrawers();
+                        return true;
+
                     case R.id.nav_resu:
                         // launch new intent instead of loading fragment
-                        startActivity(new Intent(MainActivity.this, Resume.class));
+                        String value = getIntent().getStringExtra("getData");
+                        Intent i = new Intent(MainActivity.this,Resume.class);
+                        i.putExtra("getData",value);
+                        startActivity(i);
                         drawer.closeDrawers();
                         return true;
 
@@ -399,9 +410,9 @@ public class MainActivity extends AppCompatActivity {
 
     // show or hide the fab
    private void toggleFab() {
-        if (navItemIndex == 0)
-            fab.show();
-        else
-            fab.hide();
+       // if (navItemIndex == 0)
+//            fab.show();
+        //else
+           // fab.hide();
     }
 }

@@ -5,53 +5,167 @@
     android:layout_height="match_parent"
     tools:context="jdisa.homesafety.Menu.Fragment.HomeFragment">
 
-
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/gris" >
     <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/gris">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/relativelayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="64dp" >
+        <ImageView
+            android:id="@+id/imageView2"
+            android:src="@drawable/co2"
+            android:layout_width="995dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="126dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/co22" />
+        <TextView
+            android:id="@+id/co22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity=""
+            android:textSize="20sp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:textStyle="italic"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/relativelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="64dp" >
+        <ImageView
+            android:id="@+id/imageView"
+            android:src="@drawable/temp"
+            android:layout_width="995dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="136dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/temp2" />
+
+        <TextView
+            android:id="@+id/temp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:gravity=""
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/relativelayout3"
+        android:layout_width="fill_parent"
+        android:layout_height="64dp" >
+        <ImageView
+            android:id="@+id/imageView3"
+            android:src="@drawable/hume"
+            android:layout_width="995dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="113dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/hum2" />
+
+
+        <TextView
+            android:id="@+id/hum2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:gravity=""
+            android:textSize="20sp"
+
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:textStyle="italic"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/relativelayout4"
+        android:layout_width="fill_parent"
+        android:layout_height="64dp" >
+        <ImageView
+            android:id="@+id/imageView4"
+            android:src="@drawable/pg"
+            android:layout_width="995dp"
+            android:layout_height="45dp"
+
+            android:layout_marginStart="139dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/gas2" />
+        <TextView
+            android:id="@+id/gas2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity=""
+
+            android:textSize="20sp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:textStyle="italic"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:text="Ultima Foto Tomada:"
+            android:gravity=""
+            android:textSize="20sp"  />
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/imgView2" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:layout_centerInParent="true"
-            android:textSize="40sp"
-            android:textStyle="bold|italic"/>/>
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:layout_centerInParent="true"
-            android:textSize="40sp"
-            android:textStyle="bold|italic"/>/>
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:layout_centerInParent="true"
-            android:textSize="40sp"
-            android:textStyle="bold|italic"/>/>
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:layout_centerInParent="true"
-            android:textSize="40sp"
-            android:textStyle="bold|italic"/>
-
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chart4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        android:layout_gravity="center"
+        android:text="Image Name"
+        android:id="@+id/tvImageName2"/>
     </LinearLayout>
-
+    </ScrollView>
 </FrameLayout>
