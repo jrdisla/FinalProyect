@@ -38,7 +38,8 @@
         <activity android:name=".Menu.Activity.TempShow" />
         <activity android:name=".Menu.Activity.Resume" />
         <activity android:name=".Menu.Activity.ImageListActivity2" />
-        <activity android:name=".Menu.Activity.device_selecction"></activity>
+        <activity android:name=".Menu.Activity.device_selecction" />
+        <activity android:name=".Menu.Activity.Historial"></activity>
     </application>
 
 </manifest>
