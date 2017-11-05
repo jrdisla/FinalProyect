@@ -39,9 +39,9 @@ public class Resume extends AppCompatActivity {
     private FirebaseAuth auth;
     private ProgressDialog progressDialog;
     private int cont=0;
-    ArrayList<BarEntry> entries = new ArrayList<>();
+
+    ArrayList<Entry> entries2 = new ArrayList<>();    ArrayList<BarEntry> entries = new ArrayList<>();
     ArrayList<String> labels = new ArrayList<String>();
-    ArrayList<Entry> entries2 = new ArrayList<>();
     ArrayList<String> labels2 = new ArrayList<String>();
     private ArrayList<Float> data_sh = new ArrayList<>();
     LineData data;
@@ -92,12 +92,17 @@ ArrayList<Data> datas = new ArrayList<Data>();
                 Long hume= 0L;
                 Long pg= 0L ;
                 Long temp= 0L ;
+                String fecha= "";
+
 for (Data item : datas)
 {
    co2 = item.getCo2() ;
     hume = item.getHume();
     pg = item.getPg();
    temp = item.getTemp();
+    fecha=item.getDay();
+
+
 
     TextView tempe =  (TextView) findViewById(R.id.temp);
     TextView hum = (TextView) findViewById(R.id.hum);
@@ -137,7 +142,7 @@ for (Data item : datas)
                 entries.add(new BarEntry((float)pg_p/datas.size(), 2));
                 labels.add("Pro.");
                 entries.add(new BarEntry((float)temp_p/datas.size(), 3));
-                labels.add("   Tem.");
+                labels.add("Tem.");
                 BarDataSet dataset = new BarDataSet(entries,"data");
                 dataset.setColors(ColorTemplate.PASTEL_COLORS);
                 dataset.setDrawValues(false);

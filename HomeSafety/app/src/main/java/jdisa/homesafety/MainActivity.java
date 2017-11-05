@@ -23,12 +23,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import jdisa.homesafety.Menu.Activity.AboutUsActivity;
-import jdisa.homesafety.Menu.Activity.Co2_Show;
-import jdisa.homesafety.Menu.Activity.GasShow;
-import jdisa.homesafety.Menu.Activity.HumShow;
+import jdisa.homesafety.Menu.Activity.Historial;
 import jdisa.homesafety.Menu.Activity.ImageListActivity2;
 import jdisa.homesafety.Menu.Activity.Resume;
-import jdisa.homesafety.Menu.Activity.TempShow;
 import jdisa.homesafety.Menu.Fragment.HomeFragment;
 import jdisa.homesafety.Menu.Fragment.PhotosFragment;
 import jdisa.homesafety.Menu.Fragment.SettingsFragment;
@@ -257,28 +254,17 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
                         drawer.closeDrawers();
                         return true;
-                    case R.id.nav_dataShow:
-                        // launch new intent instead of loading fragment
-                        startActivity(new Intent(MainActivity.this, Co2_Show.class));
-                        drawer.closeDrawers();
-                        return true;
+
 
                     case R.id.nav_gas:
                         // launch new intent instead of loading fragment
-                        startActivity(new Intent(MainActivity.this, GasShow.class));
+                        String value = getIntent().getStringExtra("getData");
+                        Intent i = new Intent(MainActivity.this,Historial.class);
+                        i.putExtra("getData",value);
+                        startActivity(i);
                         drawer.closeDrawers();
                         return true;
 
-                    case R.id.nav_Hum:
-                        // launch new intent instead of loading fragment
-                        startActivity(new Intent(MainActivity.this, HumShow.class));
-                        drawer.closeDrawers();
-                        return true;
-                    case R.id.nav_temp:
-                        // launch new intent instead of loading fragment
-                        startActivity(new Intent(MainActivity.this, TempShow.class));
-                        drawer.closeDrawers();
-                        return true;
 
                     case R.id.nav_foto:
                         // launch new intent instead of loading fragment
@@ -288,10 +274,10 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.nav_resu:
                         // launch new intent instead of loading fragment
-                        String value = getIntent().getStringExtra("getData");
-                        Intent i = new Intent(MainActivity.this,Resume.class);
-                        i.putExtra("getData",value);
-                        startActivity(i);
+                        String value2 = getIntent().getStringExtra("getData");
+                        Intent p = new Intent(MainActivity.this,Resume.class);
+                        p.putExtra("getData",value2);
+                        startActivity(p);
                         drawer.closeDrawers();
                         return true;
 

@@ -23,20 +23,12 @@
                 android:title="@string/nav_about_us" />
 
             <item
-                android:id="@+id/nav_dataShow"
-                android:title="Co2" />
-            <item
                 android:id="@+id/nav_gas"
-                android:title="Gaz" />
+                android:title="Historial" />
             <item
                 android:id="@+id/nav_foto"
                 android:title="Fotos" />
-            <item
-                android:id="@+id/nav_Hum"
-                android:title="Humedad" />
-            <item
-                android:id="@+id/nav_temp"
-                android:title="Temperatura" />
+
             <item
                 android:id="@+id/nav_resu"
                 android:title="Resumen" />

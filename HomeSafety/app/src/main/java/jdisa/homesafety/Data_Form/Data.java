@@ -8,6 +8,7 @@ import com.google.firebase.database.IgnoreExtraProperties;
 @IgnoreExtraProperties
 public  class Data {
     public Long co2;
+    public String day;
     public Long hume;
     public Long pg;
     public Long temp;
@@ -29,6 +30,14 @@ public  class Data {
 
     public void setHume(Long hume) {
         this.hume = hume;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
     }
 
     public Long getPg() {
