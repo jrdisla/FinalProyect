@@ -26,6 +26,7 @@ import jdisa.homesafety.Menu.Activity.AboutUsActivity;
 import jdisa.homesafety.Menu.Activity.Historial;
 import jdisa.homesafety.Menu.Activity.ImageListActivity2;
 import jdisa.homesafety.Menu.Activity.Resume;
+import jdisa.homesafety.Menu.Activity.UploadImage;
 import jdisa.homesafety.Menu.Fragment.HomeFragment;
 import jdisa.homesafety.Menu.Fragment.PhotosFragment;
 import jdisa.homesafety.Menu.Fragment.SettingsFragment;
@@ -240,7 +241,7 @@ public class MainActivity extends AppCompatActivity {
                         navItemIndex = 0;
                         CURRENT_TAG = TAG_HOME;
                         break;
-                    case R.id.nav_photos:
+                  /*  case R.id.nav_photos:
                         navItemIndex = 1;
                         CURRENT_TAG = TAG_PHOTOS;
                         break;
@@ -248,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_settings:
                         navItemIndex = 2;
                         CURRENT_TAG = TAG_SETTINGS;
-                        break;
+                        break;*/
                     case R.id.nav_about_us:
                         // launch new intent instead of loading fragment
                         startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
@@ -278,6 +279,15 @@ public class MainActivity extends AppCompatActivity {
                         Intent p = new Intent(MainActivity.this,Resume.class);
                         p.putExtra("getData",value2);
                         startActivity(p);
+                        drawer.closeDrawers();
+                        return true;
+
+                    case R.id.nav_upload:
+                        // launch new intent instead of loading fragment
+                        String value3 = getIntent().getStringExtra("getData");
+                        Intent t = new Intent(MainActivity.this,UploadImage.class);
+                        t.putExtra("getData",value3);
+                        startActivity(t);
                         drawer.closeDrawers();
                         return true;
 

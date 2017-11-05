@@ -59,7 +59,6 @@ public class Historial extends AppCompatActivity {
 
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner4);
-        //strings.add("Seleccione el dispositivo");
         String [] letras = {"Seleccione Parametro","Co2","Humedad","Propano","Temperatura"};
         ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, letras);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

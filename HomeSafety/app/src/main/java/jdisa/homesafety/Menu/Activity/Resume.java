@@ -110,21 +110,21 @@ for (Data item : datas)
     TextView co2e = (TextView) findViewById(R.id.co2);
 
 
-    SpannableString miTexto = new SpannableString("Co2: "+ String.valueOf(co2)+" ppm");
+    SpannableString miTexto = new SpannableString("   Co2: "+ String.valueOf(co2)+" ppm");
     StyleSpan boldSpan1 = new StyleSpan(Typeface.BOLD);
     miTexto.setSpan(boldSpan1, 0, 4, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
-    SpannableString miTexto2 = new SpannableString("Temp: " + String.valueOf(temp) + " °C");
+    SpannableString miTexto2 = new SpannableString("   Temp: " + String.valueOf(temp) + " °C");
     StyleSpan boldSpan12 = new StyleSpan(Typeface.BOLD);
     miTexto2.setSpan(boldSpan12, 0, 6, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
 
-    SpannableString miTexto3 = new SpannableString("Humedad: " + String.valueOf(hume) + "%");
+    SpannableString miTexto3 = new SpannableString("   Humedad: " + String.valueOf(hume) + "%");
     StyleSpan boldSpan13 = new StyleSpan(Typeface.BOLD);
     miTexto3.setSpan(boldSpan13, 0, 9, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
 
-    SpannableString miTexto4 = new SpannableString("Gas: " + String.valueOf(pg) + " ppm");
+    SpannableString miTexto4 = new SpannableString("   Gas: " + String.valueOf(pg) + " ppm");
     StyleSpan boldSpan14 = new StyleSpan(Typeface.BOLD);
     miTexto4.setSpan(boldSpan14, 0, 4, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 

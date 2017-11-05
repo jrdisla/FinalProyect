@@ -1,0 +1,132 @@
+package jdisa.homesafety.Menu.Activity;
+
+import android.app.ProgressDialog;
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.webkit.MimeTypeMap;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import jdisa.homesafety.R;
+
+public class UploadImage extends AppCompatActivity {
+    private StorageReference mStorageRef;
+    private DatabaseReference nDatabase;
+    private ImageView imageView;
+    private EditText txtImageName;
+    private Uri imgUrl;
+   public static final String FB_STORAGE_PATH_IMAGENP = "buenas/";
+    public static final int REQUES_CODE = 1234;
+    String value= "";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_upload_image);
+        String get = getIntent().getStringExtra("getData");
+        value = get;
+        final String FB_DATABASE_PATH = ("buenas/"+value);
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+        nDatabase= FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
+        imageView = (ImageView) findViewById(R.id.imageView);
+        txtImageName = (EditText) findViewById(R.id.txtImageName);
+    }
+    public void btnBrowse_Click (View v)
+    {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent,"Select Image"),REQUES_CODE);
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUES_CODE && resultCode == RESULT_OK && data != null && data.getData() != null){
+            imgUrl = data.getData();
+            try {
+                Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(),imgUrl);
+                imageView.setImageBitmap(bm);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public String getImageExt (Uri uri)
+    {
+        ContentResolver contentResolver = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+    }
+    @SuppressWarnings("VisibleForTests")
+    public void btnUpload_Click (View v)
+    {
+        if (imgUrl != null)
+        {
+            final ProgressDialog dialog = new ProgressDialog(this);
+            dialog.setTitle("Uploading Image");
+            dialog.show();
+            //Get the storage References
+            StorageReference reference = mStorageRef.child(FB_STORAGE_PATH_IMAGENP + System.currentTimeMillis() + "."+getImageExt(imgUrl));
+            //Add File to reference
+            reference.putFile(imgUrl).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    dialog.dismiss();
+                    //Display succes
+                    Toast.makeText(getApplicationContext(),"image uploaded",Toast.LENGTH_SHORT).show();
+
+                    ImageUpload imageUpload = new ImageUpload(txtImageName.getText().toString(),taskSnapshot.getDownloadUrl().toString());
+
+                    //Save image info to firebase database
+                    String uploadId = nDatabase.push().getKey();
+                    nDatabase.child(value +System.currentTimeMillis()).setValue(imageUpload);
+                }
+            })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            dialog.dismiss();
+                            //Display error
+                            Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @SuppressWarnings("VisibleForTests")
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            //show upload progress
+                            double progress = (100 * taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
+                            dialog.setMessage("uploaded"+(int)progress + "%");
+                        }
+                    });
+
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Select an Image",Toast.LENGTH_SHORT).show();
+        }
+    }
+}

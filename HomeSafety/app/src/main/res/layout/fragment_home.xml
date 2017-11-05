@@ -16,6 +16,15 @@
         android:orientation="vertical"
         android:background="@color/gris">
 
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:text="  Estado:"
+            android:gravity=""
+            android:textSize="20sp" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -126,8 +135,8 @@
             android:layout_width="995dp"
             android:layout_height="45dp"
 
-            android:layout_marginStart="139dp"
-            android:layout_alignParentTop="true"
+            android:layout_marginStart="123dp"
+            android:layout_alignBottom="@+id/gas2"
             android:layout_toEndOf="@+id/gas2" />
         <TextView
             android:id="@+id/gas2"
@@ -151,7 +160,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold|italic"
-            android:text="Ultima Foto Tomada:"
+            android:text="  Ultima Foto Tomada:"
             android:gravity=""
             android:textSize="20sp"  />
     <ImageView

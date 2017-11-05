@@ -5,32 +5,34 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/nav_home" />
-        <item
-            android:id="@+id/nav_photos"
-            android:icon="@drawable/ic_photo_library_black_24dp"
-            android:title="@string/nav_photos" />
 
-        <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_settings_black_24dp"
-            android:title="@string/nav_settings" />
     </group>
 
-    <item android:title="Other">
+    <item android:title="Opciones">
         <menu>
             <item
                 android:id="@+id/nav_about_us"
-                android:title="@string/nav_about_us" />
+                android:icon="@drawable/ic_settings_black_24dp"
+                android:title="Configuración"
+                />
 
             <item
                 android:id="@+id/nav_gas"
+                android:icon="@drawable/histo"
                 android:title="Historial" />
             <item
                 android:id="@+id/nav_foto"
+                android:icon="@drawable/imge"
                 android:title="Fotos" />
+            <item
+                android:id="@+id/nav_upload"
+                android:icon="@drawable/upload"
+                android:title="Subir Imagen"
+                />
 
             <item
                 android:id="@+id/nav_resu"
+                android:icon="@drawable/data"
                 android:title="Resumen" />
         </menu>
     </item>
