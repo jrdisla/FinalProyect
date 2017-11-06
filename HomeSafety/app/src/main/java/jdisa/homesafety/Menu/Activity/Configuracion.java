@@ -1,10 +1,9 @@
 package jdisa.homesafety.Menu.Activity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,8 +19,7 @@ import jdisa.homesafety.Autenticacion.LoginActivity;
 import jdisa.homesafety.Autenticacion.SignupActivity;
 import jdisa.homesafety.R;
 
-public class AboutUsActivity extends AppCompatActivity {
-
+public class Configuracion extends AppCompatActivity {
     private Button btnChangeEmail, btnChangePassword, btnSendResetEmail, btnRemoveUser,
             changeEmail, changePassword, sendEmail, remove, signOut;
 
@@ -29,37 +27,12 @@ public class AboutUsActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_us);
-
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setTitle(getString(R.string.app_name));
-        setSupportActionBar(toolbar);
-
-       /* Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        String[] letra = {"A","B","C","D","E"};
-        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, letra));
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id)
-            {
-                String selected = adapterView.getItemAtPosition(pos).toString();
-                Intent intent = new Intent(getApplicationContext(), Resume.class);
-                intent.putExtra("getData",selected);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent)
-            {    }
-        });*/
-
+        setContentView(R.layout.activity_configuracion);
+        setTitle("Configuración ");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         auth = FirebaseAuth.getInstance();
 
         //get current user
@@ -72,7 +45,7 @@ public class AboutUsActivity extends AppCompatActivity {
                 if (user == null) {
                     // user auth state is changed - user is null
                     // launch login activity
-                    startActivity(new Intent(AboutUsActivity.this, LoginActivity.class));
+                    startActivity(new Intent(Configuracion.this, LoginActivity.class));
                     finish();
                 }
             }
@@ -132,11 +105,11 @@ public class AboutUsActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(AboutUsActivity.this, "Email address is updated. Please sign in with new email id!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(Configuracion.this, "Email address is updated. Please sign in with new email id!", Toast.LENGTH_LONG).show();
                                         signOut();
                                         progressBar.setVisibility(View.GONE);
                                     } else {
-                                        Toast.makeText(AboutUsActivity.this, "Failed to update email!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(Configuracion.this, "Failed to update email!", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
                                     }
                                 }
@@ -176,11 +149,11 @@ public class AboutUsActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            Toast.makeText(AboutUsActivity.this, "Password is updated, sign in with new password!", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(Configuracion.this, "Password is updated, sign in with new password!", Toast.LENGTH_SHORT).show();
                                             signOut();
                                             progressBar.setVisibility(View.GONE);
                                         } else {
-                                            Toast.makeText(AboutUsActivity.this, "Failed to update password!", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(Configuracion.this, "Failed to update password!", Toast.LENGTH_SHORT).show();
                                             progressBar.setVisibility(View.GONE);
                                         }
                                     }
@@ -217,10 +190,10 @@ public class AboutUsActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(AboutUsActivity.this, "Reset password email is sent!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Configuracion.this, "Reset password email is sent!", Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
                                     } else {
-                                        Toast.makeText(AboutUsActivity.this, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Configuracion.this, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
                                     }
                                 }
@@ -242,12 +215,12 @@ public class AboutUsActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(AboutUsActivity.this, "Your profile is deleted:( Create a account now!", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(AboutUsActivity.this, SignupActivity.class));
+                                        Toast.makeText(Configuracion.this, "Your profile is deleted:( Create a account now!", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(Configuracion.this, SignupActivity.class));
                                         finish();
                                         progressBar.setVisibility(View.GONE);
                                     } else {
-                                        Toast.makeText(AboutUsActivity.this, "Failed to delete your account!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Configuracion.this, "Failed to delete your account!", Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
                                     }
                                 }
@@ -264,7 +237,6 @@ public class AboutUsActivity extends AppCompatActivity {
         });
 
     }
-
     //sign out method
     public void signOut() {
         auth.signOut();
@@ -289,5 +261,9 @@ public class AboutUsActivity extends AppCompatActivity {
             auth.removeAuthStateListener(authListener);
         }
     }
-
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
+    }
 }

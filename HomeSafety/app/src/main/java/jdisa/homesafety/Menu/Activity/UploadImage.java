@@ -27,6 +27,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import jdisa.homesafety.Data_Form.ImageUpload;
 import jdisa.homesafety.R;
 
 public class UploadImage extends AppCompatActivity {
@@ -41,7 +42,9 @@ public class UploadImage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_upload_image);
+        setTitle("Cargar Imagen ");
         String get = getIntent().getStringExtra("getData");
         value = get;
         final String FB_DATABASE_PATH = ("buenas/"+value);
@@ -128,5 +131,10 @@ public class UploadImage extends AppCompatActivity {
         {
             Toast.makeText(getApplicationContext(),"Select an Image",Toast.LENGTH_SHORT).show();
         }
+    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

@@ -50,17 +50,14 @@ public class Resume extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resume);
+        setTitle("Resumen ");
         auth = FirebaseAuth.getInstance();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent i = getIntent();
         final String value= getIntent().getStringExtra("getData");
-
         progressDialog = new ProgressDialog(this);
         progressDialog.show();
-        nDatabaseRef = FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_CO2);
-        nDatabaseRef2 = FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_);
-        nDatabaseRef3 = FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_GAZ);
-        nDatabaseRef4 = FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_HUM);
         Data= FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_Data);
 
         Data.addValueEventListener(new ValueEventListener() {
@@ -112,21 +109,21 @@ for (Data item : datas)
 
     SpannableString miTexto = new SpannableString("   Co2: "+ String.valueOf(co2)+" ppm");
     StyleSpan boldSpan1 = new StyleSpan(Typeface.BOLD);
-    miTexto.setSpan(boldSpan1, 0, 4, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+    miTexto.setSpan(boldSpan1, 0, 7, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
     SpannableString miTexto2 = new SpannableString("   Temp: " + String.valueOf(temp) + " °C");
     StyleSpan boldSpan12 = new StyleSpan(Typeface.BOLD);
-    miTexto2.setSpan(boldSpan12, 0, 6, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+    miTexto2.setSpan(boldSpan12, 0, 8, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
 
     SpannableString miTexto3 = new SpannableString("   Humedad: " + String.valueOf(hume) + "%");
     StyleSpan boldSpan13 = new StyleSpan(Typeface.BOLD);
-    miTexto3.setSpan(boldSpan13, 0, 9, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+    miTexto3.setSpan(boldSpan13, 0, 11, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
 
     SpannableString miTexto4 = new SpannableString("   Gas: " + String.valueOf(pg) + " ppm");
     StyleSpan boldSpan14 = new StyleSpan(Typeface.BOLD);
-    miTexto4.setSpan(boldSpan14, 0, 4, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+    miTexto4.setSpan(boldSpan14, 0, 7, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
     co2e.setText(miTexto);
     tempe.setText(miTexto2);
@@ -161,4 +158,10 @@ for (Data item : datas)
 
 
     }
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
+    }
+
 }

@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import jdisa.homesafety.Data_Form.Data;
-import jdisa.homesafety.Menu.Activity.ImageUpload;
+import jdisa.homesafety.Data_Form.ImageUpload;
 import jdisa.homesafety.R;
 
 
@@ -125,21 +125,21 @@ public class HomeFragment extends Fragment {
 
                     SpannableString miTexto = new SpannableString("   Co2: "+ String.valueOf(co2)+" ppm");
                     StyleSpan boldSpan1 = new StyleSpan(Typeface.BOLD);
-                    miTexto.setSpan(boldSpan1, 0, 4, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+                    miTexto.setSpan(boldSpan1, 0, 7, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
                     SpannableString miTexto2 = new SpannableString("   Temp: " + String.valueOf(temp) + " °C");
                     StyleSpan boldSpan12 = new StyleSpan(Typeface.BOLD);
-                    miTexto2.setSpan(boldSpan12, 0, 6, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+                    miTexto2.setSpan(boldSpan12, 0, 8, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
 
                     SpannableString miTexto3 = new SpannableString("   Humedad: " + String.valueOf(hume) + "%");
                     StyleSpan boldSpan13 = new StyleSpan(Typeface.BOLD);
-                    miTexto3.setSpan(boldSpan13, 0, 9, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+                    miTexto3.setSpan(boldSpan13, 0, 11, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
 
                     SpannableString miTexto4 = new SpannableString("   Gas: " + String.valueOf(pg) + " ppm");
                     StyleSpan boldSpan14 = new StyleSpan(Typeface.BOLD);
-                    miTexto4.setSpan(boldSpan14, 0, 4, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+                    miTexto4.setSpan(boldSpan14, 0, 7, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
                     co2e.setText(miTexto);
                     tempe.setText(miTexto2);
@@ -163,16 +163,18 @@ public class HomeFragment extends Fragment {
                         ) {
                     ImageUpload img = snapshot.getValue(ImageUpload.class);
 
-                    String name = img.getName();
-                    String utl = img.getUrl();
-                    fire.setName(name);
-                    fire.setUrl(utl);
+                    if(valor.equalsIgnoreCase(img.getDevice())) {
+                        String name = img.getName();
+                        String utl = img.getUrl();
+                        fire.setName(name);
+                        fire.setUrl(utl);
+                        fire.setDevice(img.getDevice());
 
-                    TextView tvName = (TextView) myInflatedView.findViewById(R.id.tvImageName2);
-                    ImageView img2 = (ImageView) myInflatedView.findViewById(R.id.imgView2);
-                    tvName.setText("  "+fire.getName());
-                    Glide.with(getActivity()).load(fire.getUrl()).into(img2);
-
+                        TextView tvName = (TextView) myInflatedView.findViewById(R.id.tvImageName2);
+                        ImageView img2 = (ImageView) myInflatedView.findViewById(R.id.imgView2);
+                        tvName.setText("  " + fire.getName());
+                        Glide.with(getActivity()).load(fire.getUrl()).into(img2);
+                    }
                 }
 
             }

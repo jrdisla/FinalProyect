@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gris"
+    android:background="@color/white"
     tools:context="jdisa.homesafety.Menu.Activity.UploadImage">
 
     <LinearLayout
@@ -18,21 +18,24 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@color/btn_login"
             android:text="Seleccionar Archivo"
             android:onClick="btnBrowse_Click"
             />
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="300dp"
+            android:layout_width="342dp"
             android:layout_height="300dp"
             android:layout_gravity="center"
-            />
+            android:layout_weight="0.84" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtImageName"/>
+            android:textColor="@color/gris"
+            android:textStyle="bold"
+            android:id="@+id/txtImageName"
+            android:textColorHint="@color/gris"
             android:hint="Nombre de Imagen"/>
 
         <Button
@@ -40,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cargar Imagen"
-            android:background="@color/white"
+            android:background="@color/btn_login"
             android:onClick="btnUpload_Click" />
 
 

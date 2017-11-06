@@ -6,9 +6,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/lock"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ssh"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -29,18 +28,12 @@
         <activity
             android:name=".Autenticacion.ResetPasswordActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Menu.Activity.AboutUsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Menu.Activity.Co2_Show" />
-        <activity android:name=".Menu.Activity.GasShow" />
-        <activity android:name=".Menu.Activity.HumShow" />
-        <activity android:name=".Menu.Activity.TempShow" />
         <activity android:name=".Menu.Activity.Resume" />
         <activity android:name=".Menu.Activity.ImageListActivity2" />
         <activity android:name=".Menu.Activity.device_selecction" />
         <activity android:name=".Menu.Activity.Historial" />
-        <activity android:name=".Menu.Activity.UploadImage"></activity>
+        <activity android:name=".Menu.Activity.UploadImage" />
+        <activity android:name=".Menu.Activity.Configuracion"></activity>
     </application>
 
 </manifest>

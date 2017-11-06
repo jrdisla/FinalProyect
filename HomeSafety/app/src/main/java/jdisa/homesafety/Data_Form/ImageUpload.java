@@ -1,4 +1,4 @@
-package jdisa.homesafety.Menu.Activity;
+package jdisa.homesafety.Data_Form;
 
 /**
  * Created by jrdis on 8/7/2017.
@@ -7,8 +7,17 @@ package jdisa.homesafety.Menu.Activity;
 public class ImageUpload {
     public String name;
     public String url;
+    public String device;
 
     public ImageUpload() {
+    }
+
+    public String getDevice() {
+        return device;
+    }
+
+    public void setDevice(String device) {
+        this.device = device;
     }
 
     public String getName() {

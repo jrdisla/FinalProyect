@@ -1,6 +1,7 @@
 package jdisa.homesafety.Menu.Activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
@@ -14,6 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import jdisa.homesafety.Data_Form.ImageUpload;
 import jdisa.homesafety.MainActivity;
 import jdisa.homesafety.R;
 
@@ -28,7 +30,10 @@ public class ImageListActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_list2);
-        setTitle("Image Taken: ");
+        Intent i = getIntent();
+        final String value= getIntent().getStringExtra("getData");
+        setTitle("Fotos de Intrusos ");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         imgList = new ArrayList<>();
         lv = (ListView) findViewById(R.id.listViewImage2);
         progressDialog = new ProgressDialog(this);
@@ -44,14 +49,19 @@ public class ImageListActivity2 extends AppCompatActivity {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()
                         ) {
                     ImageUpload img = snapshot.getValue(ImageUpload.class);
+                    if(img.getDevice() != null){
+                    if(value.equalsIgnoreCase(img.getDevice())) {
+
                     ImageUpload fire = new ImageUpload();
                     String name = img.getName();
                     String utl = img.getUrl();
                     fire.setName(name);
                     fire.setUrl(utl);
-                    imgList.add(fire);
+                    fire.setDevice(img.getDevice());
 
-                }
+                        imgList.add(fire);
+                    }
+                }}
                 adapter = new ImageListAdapter(ImageListActivity2.this,R.layout.image_item,imgList);
                 lv.setAdapter(adapter);
             }
@@ -65,5 +75,10 @@ public class ImageListActivity2 extends AppCompatActivity {
 
         });
 
+    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

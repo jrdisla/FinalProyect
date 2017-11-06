@@ -33,8 +33,9 @@ public class Historial extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial);
+        setTitle("Historial ");
         final String value= getIntent().getStringExtra("getData");
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Data = FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_Data);
         Data.addValueEventListener(new ValueEventListener() {
             @Override
@@ -180,5 +181,10 @@ public class Historial extends AppCompatActivity {
             {    }
         });
 
+    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }
