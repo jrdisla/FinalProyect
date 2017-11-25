@@ -16,12 +16,12 @@
         tools:layout_editor_absoluteX="8dp">
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/btn_login"
-            android:text="Seleccionar Archivo"
-            android:onClick="btnBrowse_Click"
-            />
+            android:id="@+id/button2"
+            android:layout_width="63dp"
+            android:layout_height="64dp"
+            android:background="@drawable/boton"
+            android:onClick="btnBrowse_Click" />
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="342dp"
@@ -39,11 +39,10 @@
             android:hint="Nombre de Imagen"/>
 
         <Button
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cargar Imagen"
-            android:background="@color/btn_login"
+            android:background="@android:color/white"
+            android:drawableBottom="@drawable/up"
             android:onClick="btnUpload_Click" />
 
 

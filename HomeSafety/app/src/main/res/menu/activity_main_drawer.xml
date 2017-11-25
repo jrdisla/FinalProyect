@@ -34,6 +34,7 @@
                 android:id="@+id/nav_resu"
                 android:icon="@drawable/data"
                 android:title="Resumen" />
+
         </menu>
     </item>
 
