@@ -34,6 +34,24 @@
                 android:id="@+id/nav_resu"
                 android:icon="@drawable/data"
                 android:title="Resumen" />
+            <item
+                android:id="@+id/nav_remove"
+                android:icon="@drawable/delete"
+                android:title="Eliminar Persona" />
+            <item
+                android:id="@+id/nav_addD"
+                android:icon="@drawable/device"
+                android:title="Añadir Dispositivo" />
+
+            <item
+                android:id="@+id/nav_entries"
+                android:icon="@drawable/entries"
+                android:title="Historial de Entradas" />
+
+            <item
+                android:id="@+id/nav_open"
+                android:icon="@drawable/opendoor"
+                android:title="Abrir Puerta" />
 
         </menu>
     </item>

@@ -90,6 +90,7 @@ public class HomeFragment extends Fragment {
         final String valor = getActivity().getIntent().getStringExtra("getData");
         final View myInflatedView = inflater.inflate(R.layout.fragment_home, container,false);
         auth = FirebaseAuth.getInstance();
+
         Data2 = FirebaseDatabase.getInstance().getReference("Data");
         Data2.limitToLast(1).addValueEventListener(new ValueEventListener() {
             @Override

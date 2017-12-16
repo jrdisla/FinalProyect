@@ -15,8 +15,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.GetTokenResult;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import jdisa.homesafety.Data_Form.Usuario;
 import jdisa.homesafety.MainActivity;
+import jdisa.homesafety.Menu.Activity.device_selecction;
 import jdisa.homesafety.R;
 
 public class SignupActivity extends AppCompatActivity {
@@ -25,7 +30,7 @@ public class SignupActivity extends AppCompatActivity {
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
-
+    private DatabaseReference Data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +38,7 @@ public class SignupActivity extends AppCompatActivity {
 
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
-
+        Data= FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_Usuarios);
         btnSignIn = (Button) findViewById(R.id.sign_in_button);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         inputEmail = (EditText) findViewById(R.id.email);
@@ -92,7 +97,20 @@ public class SignupActivity extends AppCompatActivity {
                                     Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
+
+                                    auth.getCurrentUser().getToken(true).addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<GetTokenResult> task) {
+                                            String idToken = task.getResult().getToken();
+                                            String emmail = auth.getCurrentUser().getEmail();
+                                            Usuario user = new Usuario();
+                                            user.setEmail(emmail);
+                                            user.setToken(idToken);
+                                            Data.child("users").setValue(user);
+                                        }
+                                    });
+                                    Intent intent = new Intent(SignupActivity.this, device_selecction.class);
+                                    startActivity(intent);
                                     finish();
                                 }
                             }

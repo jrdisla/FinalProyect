@@ -20,13 +20,13 @@
             android:layout_width="fill_parent"
             android:layout_height="64dp" >
         <ImageView
-            android:id="@+id/imageView2"
-            android:src="@drawable/co2"
-            android:layout_width="995dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="103dp"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/co2" />
+        android:id="@+id/imageView2"
+        android:src="@drawable/co2"
+        android:layout_width="995dp"
+        android:layout_height="45dp"
+        android:layout_toEndOf="@+id/co2"
+        android:layout_marginStart="93dp" />
+
         <TextView
             android:id="@+id/co2"
             android:layout_width="wrap_content"
@@ -120,7 +120,7 @@
             android:layout_width="995dp"
             android:layout_height="45dp"
 
-            android:layout_marginStart="91dp"
+            android:layout_marginStart="118dp"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/gas" />
         <TextView

@@ -59,8 +59,7 @@ public class Resume extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.show();
         Data= FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_Data);
-
-        Data.addValueEventListener(new ValueEventListener() {
+        Data.limitToLast(25).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 

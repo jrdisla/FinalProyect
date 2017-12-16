@@ -71,7 +71,10 @@
             android:inputType="textPassword"
             android:maxLines="1"
             android:singleLine="true" />
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
         <Button
             android:id="@+id/changeEmail"
             style="?android:textAppearanceSmall"
@@ -82,7 +85,10 @@
             android:text="@string/btn_change"
             android:textColor="@android:color/black"
             android:textStyle="bold" />
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
         <Button
             android:id="@+id/changePass"
             style="?android:textAppearanceSmall"
@@ -93,7 +99,10 @@
             android:text="@string/btn_change"
             android:textColor="@android:color/black"
             android:textStyle="bold" />
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
         <Button
             android:id="@+id/send"
             style="?android:textAppearanceSmall"
@@ -110,7 +119,10 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:visibility="gone" />
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
         <Button
             android:id="@+id/remove"
             style="?android:textAppearanceSmall"
@@ -121,7 +133,10 @@
             android:text="@string/btn_remove"
             android:textColor="@android:color/black"
             android:textStyle="bold" />
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
         <Button
             android:id="@+id/change_email_button"
             style="?android:textAppearanceSmall"
@@ -132,7 +147,10 @@
             android:text="@string/change_email"
             android:textColor="@android:color/black"
             android:textStyle="bold" />
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
         <Button
             android:id="@+id/change_password_button"
             style="?android:textAppearanceSmall"
@@ -143,7 +161,10 @@
             android:background="@color/btn_login"
             android:textColor="@android:color/black"
             android:textStyle="bold" />
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
         <Button
             android:id="@+id/sending_pass_reset_button"
             style="?android:textAppearanceSmall"
@@ -154,7 +175,10 @@
             android:textColor="@android:color/black"
             android:background="@color/btn_login"
             android:textStyle="bold" />
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
         <Button
             android:id="@+id/remove_user_button"
             style="?android:textAppearanceSmall"
@@ -165,7 +189,10 @@
             android:textColor="@android:color/black"
             android:background="@color/btn_login"
             android:textStyle="bold" />
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
         <Button
             android:id="@+id/sign_out"
             style="?android:textAppearanceSmall"
@@ -176,6 +203,10 @@
             android:text="@string/btn_sign_out"
             android:textColor="@android:color/black"
             android:textStyle="bold" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
 
 
     </LinearLayout>

@@ -5,6 +5,7 @@
     <string name="email">Email</string>
     <string name="minimum_password">Contraseña muy corta, minímo 6 caracteres!</string>
     <string name="auth_failed">Falla de autenticación, revice su email y contraseña ó registrece</string>
+    <string name="auth_failed_p">Falla de autenticación, revice su contraseña</string>
     <string name="change_email">Cambiar Email</string>
     <string name="change_password">Cambiar Contraseña</string>
     <string name="send_password_reset_email">Enviar Email de cambio de contraseña</string>
@@ -50,6 +51,14 @@
         <item>Home</item>
         <item>Photos</item>
         <item>Settings</item>
+    </string-array>
+
+    <string-array name="cabecera_tabla">
+        <item>ID</item>
+        <item>Date</item>
+        <item>Time</item>
+        <item>User</item>
+        <item>Device</item>
     </string-array>
 
     <string name="activity_title_about_us">About Us</string>

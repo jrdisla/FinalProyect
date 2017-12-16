@@ -28,6 +28,7 @@ import jdisa.homesafety.R;
 
 public class Historial extends AppCompatActivity {
      DatabaseReference Data;
+
     private ArrayList<Data> datas = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class Historial extends AppCompatActivity {
         final String value= getIntent().getStringExtra("getData");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Data = FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_Data);
-        Data.addValueEventListener(new ValueEventListener() {
+        Data.limitToLast(5).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -60,7 +61,8 @@ public class Historial extends AppCompatActivity {
 
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner4);
-        String [] letras = {"Seleccione Parametro","Co2","Humedad","Propano","Temperatura"};
+        String hola = String.valueOf(datas.size());
+        String [] letras = {"Co2","Humedad","Propano","Temperatura",hola};
         ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, letras);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -74,7 +76,7 @@ public class Historial extends AppCompatActivity {
 
                 String selected = adapterView.getItemAtPosition(pos).toString();
 
-                if (selected.equalsIgnoreCase("Co2")){
+              if (selected.equalsIgnoreCase("Co2")){
                     ArrayList<Entry> entries = new ArrayList<>();
                     ArrayList<String> labels = new ArrayList<>();
                     int count = 0;

@@ -23,10 +23,14 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import jdisa.homesafety.Menu.Activity.Configuracion;
+import jdisa.homesafety.Menu.Activity.Delete;
 import jdisa.homesafety.Menu.Activity.Historial;
 import jdisa.homesafety.Menu.Activity.ImageListActivity2;
+import jdisa.homesafety.Menu.Activity.OpenDoor;
 import jdisa.homesafety.Menu.Activity.Resume;
+import jdisa.homesafety.Menu.Activity.ShowEntradas;
 import jdisa.homesafety.Menu.Activity.UploadImage;
+import jdisa.homesafety.Menu.Activity.addDevice;
 import jdisa.homesafety.Menu.Fragment.HomeFragment;
 
 
@@ -53,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
     public static final String FB_DATABASE_PATH = "image2";
     public static final String FB_DATABASE_PATH_Data = "Data";
     public static final String FB_DATABASE_PATH_Dispositivo = "Dispositivo";
+    public static final String FB_DATABASE_PATH_Usuarios = "Users";
+    public static final String FB_DATABASE_PATH_Entradas = "Entradas";
+    public static final String FB_DATABASE_PATH_Abrir = "Abrir";
     public static String CURRENT_TAG = TAG_HOME;
 
     // toolbar titles respected to selected nav menu item
@@ -207,6 +214,15 @@ public class MainActivity extends AppCompatActivity {
                         drawer.closeDrawers();
                         return true;
 
+                    case R.id.nav_remove:
+                        // launch new intent instead of loading fragment
+                        String valuer = getIntent().getStringExtra("getData");
+                        Intent ir = new Intent(MainActivity.this,Delete.class);
+                        ir.putExtra("getData",valuer);
+                        startActivity(ir);
+                        drawer.closeDrawers();
+                        return true;
+
 
                     case R.id.nav_foto:
                         // launch new intent instead of loading fragment
@@ -226,12 +242,38 @@ public class MainActivity extends AppCompatActivity {
                         drawer.closeDrawers();
                         return true;
 
+                    case R.id.nav_addD:
+                        // launch new intent instead of loading fragment
+                        String value2456 = getIntent().getStringExtra("getData");
+                        Intent p123 = new Intent(MainActivity.this,addDevice.class);
+                        p123.putExtra("getData",value2456);
+                        startActivity(p123);
+                        drawer.closeDrawers();
+                        return true;
+
                     case R.id.nav_upload:
                         // launch new intent instead of loading fragment
                         String value3 = getIntent().getStringExtra("getData");
                         Intent t = new Intent(MainActivity.this,UploadImage.class);
                         t.putExtra("getData",value3);
                         startActivity(t);
+                        drawer.closeDrawers();
+                        return true;
+
+                    case R.id.nav_entries:
+                        // launch new intent instead of loading fragment
+                        String value35 = getIntent().getStringExtra("getData");
+                        Intent t5 = new Intent(MainActivity.this,ShowEntradas.class);
+                        t5.putExtra("getData",value35);
+                        startActivity(t5);
+                        drawer.closeDrawers();
+                        return true;
+                    case R.id.nav_open:
+                        // launch new intent instead of loading fragment
+                        String value354 = getIntent().getStringExtra("getData");
+                        Intent t54 = new Intent(MainActivity.this,OpenDoor.class);
+                        t54.putExtra("getData",value354);
+                        startActivity(t54);
                         drawer.closeDrawers();
                         return true;
 
