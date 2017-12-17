@@ -38,19 +38,17 @@ public class Historial extends AppCompatActivity {
         final String value= getIntent().getStringExtra("getData");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Data = FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH_Data);
-        Data.limitToLast(5).addValueEventListener(new ValueEventListener() {
+        Data.limitToLast(25).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
                 for (DataSnapshot item: dataSnapshot.child(value).getChildren()
-                     ) {
+                        ) {
 
                     Data data;
                     data = item.getValue(Data.class);
                     datas.add(data);
 
                 }
-
             }
 
             @Override
@@ -60,9 +58,9 @@ public class Historial extends AppCompatActivity {
         });
 
 
+
         Spinner spinner = (Spinner) findViewById(R.id.spinner4);
-        String hola = String.valueOf(datas.size());
-        String [] letras = {"Co2","Humedad","Propano","Temperatura",hola};
+        String [] letras = {"Seleccione Parametro","Co2","Humedad","Propano","Temperatura"};
         ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, letras);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -76,7 +74,33 @@ public class Historial extends AppCompatActivity {
 
                 String selected = adapterView.getItemAtPosition(pos).toString();
 
-              if (selected.equalsIgnoreCase("Co2")){
+
+
+                if(selected.equalsIgnoreCase("Seleccione Parametro"))
+                {
+                    ArrayList<Entry> entries = new ArrayList<>();
+                    ArrayList<String> labels = new ArrayList<>();
+                    int count = 0;
+                    for (Data item: datas
+                            ) {
+
+                        entries.add(new BarEntry((float)item.getCo2(), count++));
+                        labels.add(item.getDay());
+
+                    }
+
+                    LineDataSet dataset = new LineDataSet(entries, "data");
+                    dataset.setColors(ColorTemplate.COLORFUL_COLORS);
+                    dataset.setDrawFilled(true);
+                    dataset.setDrawValues(false);
+                    LineData data = new LineData(labels, dataset);
+                    LineChart lineChart = (LineChart) findViewById(R.id.chart100);
+                    lineChart.setData(data);
+                    lineChart.notifyDataSetChanged();
+                    lineChart.invalidate();
+                }
+
+              else if (selected.equalsIgnoreCase("Co2")){
                     ArrayList<Entry> entries = new ArrayList<>();
                     ArrayList<String> labels = new ArrayList<>();
                     int count = 0;

@@ -77,6 +77,7 @@ public class device_selecction extends AppCompatActivity {
                 if(!selected.equalsIgnoreCase("Seleccione el dispositivo")){
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 intent.putExtra("getData",selected);
+                    strings.clear();
                 startActivity(intent);}
             }
 

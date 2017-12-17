@@ -7,7 +7,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,15 +21,20 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
+import jdisa.homesafety.Menu.Activity.AddHuella;
 import jdisa.homesafety.Menu.Activity.Configuracion;
 import jdisa.homesafety.Menu.Activity.Delete;
+import jdisa.homesafety.Menu.Activity.Fotos_Buenas;
 import jdisa.homesafety.Menu.Activity.Historial;
 import jdisa.homesafety.Menu.Activity.ImageListActivity2;
+import jdisa.homesafety.Menu.Activity.Notificaciones;
 import jdisa.homesafety.Menu.Activity.OpenDoor;
 import jdisa.homesafety.Menu.Activity.Resume;
 import jdisa.homesafety.Menu.Activity.ShowEntradas;
+import jdisa.homesafety.Menu.Activity.Stream;
 import jdisa.homesafety.Menu.Activity.UploadImage;
 import jdisa.homesafety.Menu.Activity.addDevice;
+import jdisa.homesafety.Menu.Activity.device_selecction;
 import jdisa.homesafety.Menu.Fragment.HomeFragment;
 
 
@@ -55,18 +59,20 @@ public class MainActivity extends AppCompatActivity {
     // tags used to attach the fragments
     private static final String TAG_HOME = "home";
     public static final String FB_DATABASE_PATH = "image2";
+    public static final String FB_DATABASE_PATH2 = "buenas";
     public static final String FB_DATABASE_PATH_Data = "Data";
     public static final String FB_DATABASE_PATH_Dispositivo = "Dispositivo";
     public static final String FB_DATABASE_PATH_Usuarios = "Users";
     public static final String FB_DATABASE_PATH_Entradas = "Entradas";
     public static final String FB_DATABASE_PATH_Abrir = "Abrir";
+    public static final String FB_DATABASE_PATH_Huella = "Huella";
     public static String CURRENT_TAG = TAG_HOME;
 
     // toolbar titles respected to selected nav menu item
     private String[] activityTitles;
 
     // flag to load home fragment when user presses back key
-    private boolean shouldLoadHomeFragOnBackPress = true;
+    private boolean shouldLoadHomeFragOnBackPress = false;
     private Handler mHandler;
 
 
@@ -78,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
-
+        startService(new Intent(this, Notificaciones.class));
         mHandler = new Handler();
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -277,6 +283,39 @@ public class MainActivity extends AppCompatActivity {
                         drawer.closeDrawers();
                         return true;
 
+                    case R.id.nav_huella:
+                        // launch new intent instead of loading fragment
+                        String value3544 = getIntent().getStringExtra("getData");
+                        Intent t544 = new Intent(MainActivity.this,AddHuella.class);
+                        t544.putExtra("getData",value3544);
+                        startActivity(t544);
+                        drawer.closeDrawers();
+                        return true;
+                    case R.id.nav_select:
+                        // launch new intent instead of loading fragment
+                        String value35445 = getIntent().getStringExtra("getData");
+                        Intent t5445 = new Intent(MainActivity.this,device_selecction.class);
+                        t5445.putExtra("getData",value35445);
+                        startActivity(t5445);
+                        drawer.closeDrawers();
+                        return true;
+                    case R.id.nav_fotoc:
+                        // launch new intent instead of loading fragment
+                        String value354455 = getIntent().getStringExtra("getData");
+                        Intent t54455 = new Intent(MainActivity.this,Fotos_Buenas.class);
+                        t54455.putExtra("getData",value354455);
+                        startActivity(t54455);
+                        drawer.closeDrawers();
+                        return true;
+
+                    case R.id.nav_stream:
+                        // launch new intent instead of loading fragment
+                        String value3544553 = getIntent().getStringExtra("getData");
+                        Intent t544553 = new Intent(MainActivity.this,Stream.class);
+                        t544553.putExtra("getData",value3544553);
+                        startActivity(t544553);
+                        drawer.closeDrawers();
+                        return true;
 
                     default:
                         navItemIndex = 0;
@@ -321,7 +360,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
+    /*    if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawers();
             return;
         }
@@ -339,7 +378,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        super.onBackPressed();
+        super.onBackPressed();*/
+        if (getFragmentManager().getBackStackEntryCount() == 1 ) {
+            this.finish();
+        } else {
+            getFragmentManager().popBackStack();
+        }
     }
 
     @Override

@@ -52,7 +52,12 @@
         <activity android:name=".Menu.Activity.addDevice" />
         <activity android:name=".Menu.Activity.ShowEntradas" />
         <activity android:name=".Menu.Activity.OpenDoor" />
-        <activity android:name=".Menu.Activity.AddHuella"></activity>
+        <activity android:name=".Menu.Activity.AddHuella" />
+
+        <service android:name=".Menu.Activity.Notificaciones" />
+
+        <activity android:name=".Menu.Activity.Fotos_Buenas" />
+        <activity android:name=".Menu.Activity.Stream"></activity>
     </application>
 
 </manifest>

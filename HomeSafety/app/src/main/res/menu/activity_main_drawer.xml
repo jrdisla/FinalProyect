@@ -17,42 +17,60 @@
                 />
 
             <item
-                android:id="@+id/nav_gas"
-                android:icon="@drawable/histo"
-                android:title="Historial" />
-            <item
                 android:id="@+id/nav_foto"
                 android:icon="@drawable/imge"
-                android:title="Fotos" />
+                android:title="Fotos Intrusos" />
             <item
                 android:id="@+id/nav_upload"
                 android:icon="@drawable/upload"
                 android:title="Subir Imagen"
                 />
-
             <item
-                android:id="@+id/nav_resu"
-                android:icon="@drawable/data"
-                android:title="Resumen" />
+                android:id="@+id/nav_stream"
+                android:icon="@drawable/upload"
+                android:title="Streaming"
+                />
             <item
                 android:id="@+id/nav_remove"
                 android:icon="@drawable/delete"
                 android:title="Eliminar Persona" />
+            <item
+                android:id="@+id/nav_fotoc"
+                android:icon="@drawable/imge"
+                android:title="Fotos Conocidas" />
+            <item
+                android:id="@+id/nav_gas"
+                android:icon="@drawable/histo"
+                android:title="Historial" />
+            <item
+                android:id="@+id/nav_resu"
+                android:icon="@drawable/data"
+                android:title="Resumen" />
+
             <item
                 android:id="@+id/nav_addD"
                 android:icon="@drawable/device"
                 android:title="Añadir Dispositivo" />
 
             <item
-                android:id="@+id/nav_entries"
-                android:icon="@drawable/entries"
-                android:title="Historial de Entradas" />
+                android:id="@+id/nav_select"
+                android:icon="@drawable/select"
+                android:title="Seleccionar Dispositivo" />
+
 
             <item
                 android:id="@+id/nav_open"
                 android:icon="@drawable/opendoor"
                 android:title="Abrir Puerta" />
 
+            <item
+                android:id="@+id/nav_huella"
+                android:icon="@drawable/huella"
+                android:title="Añadir Huella" />
+            <item
+                android:id="@+id/nav_entries"
+                android:icon="@drawable/entries"
+                android:title="Historial de Entradas" />
         </menu>
     </item>
 

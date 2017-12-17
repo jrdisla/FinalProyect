@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import jdisa.homesafety.Data_Form.Usuario;
 import jdisa.homesafety.MainActivity;
-import jdisa.homesafety.Menu.Activity.device_selecction;
+import jdisa.homesafety.Menu.Activity.addDevice;
 import jdisa.homesafety.R;
 
 public class SignupActivity extends AppCompatActivity {
@@ -109,7 +109,7 @@ public class SignupActivity extends AppCompatActivity {
                                             Data.child("users").setValue(user);
                                         }
                                     });
-                                    Intent intent = new Intent(SignupActivity.this, device_selecction.class);
+                                    Intent intent = new Intent(SignupActivity.this, addDevice.class);
                                     startActivity(intent);
                                     finish();
                                 }

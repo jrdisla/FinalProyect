@@ -1,5 +1,6 @@
 package jdisa.homesafety.Menu.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -44,6 +45,11 @@ public class addDevice extends AppCompatActivity {
                     dispositivo.setName(devic);
                     dispositivo.setUser(auth.getCurrentUser().getEmail());
                     Data.child(dispositivo.getName()).setValue(dispositivo);
+
+                    Intent intent = new Intent(addDevice.this, MainActivity.class);
+                    intent.putExtra("getData",dispositivo.getName());
+                    startActivity(intent);
+                    finish();
 
 
             }
